@@ -7,7 +7,9 @@
     "build": "rsbuild build",
     "dev": "rsbuild dev --open",
     "preview": "rsbuild preview",
-    "start": "react-scripts start"
+    "start": "react-scripts start",
+    "postinstall": "cd backend && npm install"
+
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
