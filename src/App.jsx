@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import './App.css';
+import './css/App.css';
+import './css/Profile.css';
+import './css/Project.css';
 import Bio from './components/Bio'
 import ContactForm from './components/ContactForm'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +13,9 @@ const skillColors = {
   Statistics: "#61DAFB",
   scikit: "#E76F00",
   Torch: "#E70000",
+  'Node.js': "#7D32A8",
+  JavaScript: "#32A885",
+  React: "#66A832"
 
 };
 
@@ -30,24 +35,26 @@ const Home = () => {
     <div className='App'>
       {/* Main Page */}
       <main>
-        <h2>kaylen rivers</h2>
-        <h1>Hi, I'm Kaylen</h1>
-
-        {/* Profile Picture */}
-        <div className="profile-container">
-            <img src="/profile2.jpeg" alt="Kaylen's Profile" className="profile-pic" />
+        
+        <div className="header-container">
+          <h2>kaylen rivers</h2>
+          <ul className="social-container">
+            <li>
+              <a href="https://www.linkedin.com/in/kaylen-rivers/" target="_blank" rel="noopener noreferrer" className="linkedin-icon">
+                <FontAwesomeIcon icon={faLinkedin} />
+              </a>
+              <a href="https://github.com/kirivers" target="_blank" rel="noopener noreferrer" className="github-icon-top">
+                <FontAwesomeIcon icon={faGithub} />
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <Bio />
+        <h1>Hi, I'm Kaylen</h1>
+        <div className='profile'>
+          <Bio />
 
-         {/* Social Media Links */}
-         <ul className="social-container">
-          <li>
-            <a href="https://www.linkedin.com/in/kaylen-rivers/" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <FontAwesomeIcon icon={faLinkedin} />
-            </a>
-          </li>
-        </ul>
+        </div>
 
         <h1>Projects</h1>
         <div className="projects-container">
@@ -82,18 +89,7 @@ const Home = () => {
             </a>
           ))}
         </div>
-        {/* Social Media Links */}
-        <ul className="social-container">
-          <li>
-            <a href="https://github.com/kirivers" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <FontAwesomeIcon icon={faGithub} />
-            </a>
-          </li>
-        </ul>
 
-        <h1>Get in Touch</h1>
-        <p> Want to reach out? Please leave your name, email, and a message down below.</p>
-        <ContactForm />
         </main>
 
         
