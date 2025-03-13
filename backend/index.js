@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
+const nodemailer = require('nodemailer');
 
 const app = express();
 const PORT = process.env.PORT || 9000;
@@ -10,30 +10,11 @@ const PORT = process.env.PORT || 9000;
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true 
-})
-.then(() => console.log("Connected to MongoDB"))
-.catch(err => console.error("MongoDB connection error:", err));
-
-// Define Message Schema
-const messageSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    message: String,
-    timestamp: { type: Date, default: Date.now }
-});
-
-const Message = mongoose.model('Message', messageSchema);
-
 // Simple Test Route
 app.get('/', (req, res) => {
     res.json({ message: 'Welcome to my Node.js backend!' });
 });
 
-// Fetch projects
 app.get('/api/projects', (req, res) => {
     const projects = [
         { id: 1, name: 'Iris Recognition', path: '/projects/project1', skills:['Python', 'Statistics'], description:'Implementing Personal Identification Based on Iris Texture Analysis (2003)', githubLink: 'https://github.com/kirivers/IrisRecognition' },
@@ -46,7 +27,7 @@ app.get('/api/projects', (req, res) => {
     res.json(projects);
 });
 
-// POST route to save contact form messages
+// POST route to handle contact form submissions
 app.post('/api/contact', async (req, res) => {
     const { name, email, message } = req.body;
 
@@ -54,23 +35,30 @@ app.post('/api/contact', async (req, res) => {
         return res.status(400).json({ error: 'All fields are required' });
     }
 
-    try {
-        const newMessage = new Message({ name, email, message });
-        await newMessage.save();
-        res.status(200).json({ success: 'Message saved successfully!' });
-    } catch (error) {
-        console.error('Error saving message:', error);
-        res.status(500).json({ error: 'Failed to save message' });
-    }
-});
+    // Configure Nodemailer transporter (e.g., using Gmail)
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',  // Replace with your email service
+        auth: {
+            user: process.env.EMAIL,  // Store your email address securely in .env
+            pass: process.env.EMAIL_PASSWORD,  // Store your email password securely in .env
+        },
+    });
 
-// GET route to fetch messages (secure this in production)
-app.get('/api/messages', async (req, res) => {
+    // Email options
+    const mailOptions = {
+        from: email,  // User's email (from the form)
+        to: process.env.EMAIL,  // Your email address where the message will be sent
+        subject: 'New Contact Form Submission',
+        text: `Message from ${name} (${email}):\n\n${message}`,
+    };
+
     try {
-        const messages = await Message.find();
-        res.json(messages);
+        // Send the email
+        await transporter.sendMail(mailOptions);
+        res.status(200).json({ success: 'Message sent successfully!' });
     } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch messages' });
+        console.error('Error sending email:', error);
+        res.status(500).json({ error: 'Failed to send message' });
     }
 });
 
@@ -78,3 +66,4 @@ app.get('/api/messages', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
