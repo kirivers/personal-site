@@ -1,0 +1,63 @@
+ #contact {
+  text-align: left; 
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  width: 50%; 
+  max-width: 600px; 
+}
+
+.contact-form-container{
+  margin-top:30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+.contact-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.send-area {
+  display: flex;
+  align-items: center; 
+  gap: 15px; 
+}
+
+.contact-button {
+  background-color: #333;
+  color: white;
+  height: 75px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.contact-button:hover {
+  background-color: #555;
+}
+
+.captcha-container {
+  flex-grow: 1;
+}
+
+@media (max-width: 600px) {
+  .captcha-container {
+    justify-content: center; 
+  }
+}
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Raleway:wght@300&display=swap');
