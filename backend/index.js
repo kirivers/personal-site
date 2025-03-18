@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
+// const nodemailer = require('nodemailer');
 
 const app = express();
 const PORT = process.env.PORT || 9000;
@@ -10,10 +10,6 @@ const PORT = process.env.PORT || 9000;
 app.use(cors());
 app.use(express.json());
 
-// Simple Test Route
-app.get('/', (req, res) => {
-    res.json({ message: 'Welcome to my Node.js backend!' });
-});
 
 app.get('/api/projects', (req, res) => {
     const projects = [
@@ -27,6 +23,7 @@ app.get('/api/projects', (req, res) => {
     res.json(projects);
 });
 
+/*
 // POST route to handle contact form submissions
 app.post('/api/contact', async (req, res) => {
     const { name, email, message } = req.body;
@@ -61,6 +58,7 @@ app.post('/api/contact', async (req, res) => {
         res.status(500).json({ error: 'Failed to send message' });
     }
 });
+*/
 
 // Start Server
 app.listen(PORT, () => {
