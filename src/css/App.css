@@ -54,6 +54,7 @@ h1 {
   list-style: none;
   margin: 0px;
   padding-left: 0px;
+  padding-right:50px;
   padding-top: 0px;
   justify-content: left;
 }
@@ -89,7 +90,7 @@ h1 {
 }
 
 .github-icon-top:hover {
-  color: #000;
+  color: #3fa927;
   transform: scale(1.1);
   background-color: rgba(0, 0, 0, 0.1); 
   border-radius: 50%;
