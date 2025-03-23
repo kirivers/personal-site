@@ -1,0 +1,99 @@
+.App {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 40px; /* optional: horizontal padding inside the centered container */
+}
+
+main {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 300;
+  font-size: 36px;
+  color: #444;
+  text-align: left;
+  margin-top: 0px;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom:20px;
+  padding: 0px;
+}
+
+.header-name {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1;
+}
+
+.social-container {
+  gap: 20px;
+  display: flex;
+  list-style: none;
+  margin: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  justify-content: left;
+}
+
+.social-container a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px; 
+  padding-top: 0px;
+}
+
+/* LinkedIn */
+.linkedin-icon {
+  font-size: 40px; 
+  color: #444;
+  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.linkedin-icon:hover {
+  color: #0077b5;
+  background-color: rgba(0, 119, 181, 0.1); 
+  border-radius: 50%;
+  transform: scale(1.1); 
+}
+
+/* GitHub */
+.github-icon-top {
+  font-size: 40px;
+  color: #444;
+  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.github-icon-top:hover {
+  color: #000;
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.1); 
+  border-radius: 50%;
+}
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Raleway:wght@300&display=swap');
