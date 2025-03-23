@@ -32,7 +32,7 @@ const App = () => {
       <main>
         
         <div className="header-container">
-          <h2>kaylen rivers</h2>
+          <h1>hi, I'm Kaylen</h1>
           <ul className="social-container">
             <li>
               <a href="https://www.linkedin.com/in/kaylen-rivers/" target="_blank" rel="noopener noreferrer" className="linkedin-icon">
@@ -45,7 +45,7 @@ const App = () => {
           </ul>
         </div>
 
-        <h1>Hi, I'm Kaylen</h1>
+        
         <div className='profile'>
           <Bio />
 

@@ -10,18 +10,24 @@
   max-width: 1000px;
 }
 
+@media (max-width: 680px) {
+  .projects-container {
+    grid-template-columns: 1fr; /* Switch to one column on smaller screens */
+  }
+}
+
 .project-box {
   background-color: #e1e1e1;
   position: relative;
   color: black;
   width: 500px;
-  text-align: center;
+  text-align: left;
   padding: 15px;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: bold;
   border-radius: 3px;
   height: auto;
-  min-height: 120px;
+  min-height: 200px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -34,21 +40,27 @@
   color: #444;
   margin-top: 15px;
   margin-bottom: 15px;
+  line-height: 1.4;
+  text-indent: 20px;
 }
 
 .project-link {
   text-decoration: none;
   color: inherit;
+  width: 100%;
 }
 
 .project-box {
+  width: 100%;
   cursor: pointer;
+  background: linear-gradient(180deg, rgba(225,225,225,1) 0%, rgba(240,240,240,1) 100%);
+  Border-radius: 4px;
 }
 
 .skills-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 12px;
   position: absolute;
   bottom: 5px;
   left: 10px;
@@ -57,8 +69,8 @@
 .skill-label {
   background-color: #3498db;
   color: white;
-  font-size: 12px;
-  padding: 3px 8px;
+  font-size: 15px;
+  padding: 10px 12px;
   border-radius: 5px;
   font-weight: bold;
   white-space: nowrap;
@@ -68,7 +80,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 20px;
+  font-size: 40px;
   color: #333;
   transition: color 0.3s ease-in-out;
 }
@@ -80,4 +92,4 @@
 
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Raleway:wght@300&display=swap');
+
